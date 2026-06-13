@@ -1,0 +1,15 @@
+#!/bin/bash
+export APP_VPC_ID=$(aws ec2 describe-vpcs --filters "Name=tag:Name,Values=app-vpc" --query 'Vpcs[0].VpcId' --output text)
+export BASTION_VPC_ID=$(aws ec2 describe-vpcs --filters "Name=tag:Name,Values=bastion-vpc" --query 'Vpcs[0].VpcId' --output text)
+export APP_PUB_SUB1=$(aws ec2 describe-subnets --filters "Name=tag:Name,Values=app-public-subnet-1" --query 'Subnets[0].SubnetId' --output text)
+export APP_PUB_SUB2=$(aws ec2 describe-subnets --filters "Name=tag:Name,Values=app-public-subnet-2" --query 'Subnets[0].SubnetId' --output text)
+export APP_PRI_SUB1=$(aws ec2 describe-subnets --filters "Name=tag:Name,Values=app-private-subnet-1" --query 'Subnets[0].SubnetId' --output text)
+export APP_PRI_SUB2=$(aws ec2 describe-subnets --filters "Name=tag:Name,Values=app-private-subnet-2" --query 'Subnets[0].SubnetId' --output text)
+export ALB_SG=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=alb-sg" --query 'SecurityGroups[0].GroupId' --output text)
+export APP_SG=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=app-server-sg" --query 'SecurityGroups[0].GroupId' --output text)
+export BASTION_SG=$(aws ec2 describe-security-groups --filters "Name=group-name,Values=bastion-sg" --query 'SecurityGroups[0].GroupId' --output text)
+export TG_ARN=$(aws elbv2 describe-target-groups --names app-target-group --query 'TargetGroups[0].TargetGroupArn' --output text)
+export ALB_ARN=$(aws elbv2 describe-load-balancers --names app-alb --query 'LoadBalancers[0].LoadBalancerArn' --output text)
+export ALB_DNS=$(aws elbv2 describe-load-balancers --names app-alb --query 'LoadBalancers[0].DNSName' --output text)
+export GOLDEN_AMI=$(aws ec2 describe-images --owners self --filters "Name=name,Values=golden-ami-ubuntu" --query 'Images[0].ImageId' --output text)
+echo "All variables loaded!"
