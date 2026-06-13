@@ -100,7 +100,3 @@ To avoid AWS charges, delete resources in this order:
 4. Transit Gateway & Attachments
 5. EC2 instances & AMI
 6. VPCs & all networking components
-
-## Author
-**Nandini Bansal**  
-[LinkedIn](https://linkedin.com/in/YOUR_LINKEDIN) | [GitHub](https://github.com/NandiniBansal16)
