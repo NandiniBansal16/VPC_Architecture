@@ -4,7 +4,7 @@
 Designed and deployed a production-grade, highly available VPC architecture on AWS using the AWS CLI. The infrastructure hosts a web application behind an Application Load Balancer with Auto Scaling across multiple Availability Zones.
 
 ## Architecture Diagram
-
+![Architecture](<img width="2720" height="2880" alt="vpc_architecture_diagram (1)" src="https://github.com/user-attachments/assets/478b7e24-524a-4f53-b345-9de43e71e894" />
 
 ## Tech Stack
 | Category | Tools |
